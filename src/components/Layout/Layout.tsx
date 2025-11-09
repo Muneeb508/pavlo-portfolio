@@ -8,8 +8,8 @@ export const Layout: React.FC = () => {
 
   return (
     <>
-      <a 
-        href="#main-content" 
+      <a
+        href="#main-content"
         style={{
           position: 'absolute',
           top: '-40px',
@@ -19,7 +19,7 @@ export const Layout: React.FC = () => {
           padding: '8px 16px',
           textDecoration: 'none',
           zIndex: 10000,
-          border: '2px solid #fff'
+          border: '2px solid #fff',
         }}
         onFocus={(e) => {
           e.currentTarget.style.top = '0';
@@ -30,10 +30,11 @@ export const Layout: React.FC = () => {
       >
         Skip to main content
       </a>
+
       <Header />
       <main id="main-content">
         <Suspense>
-          <Outlet />
+          <Outlet key={location.pathname} />
         </Suspense>
       </main>
       <Footer />
