@@ -41,7 +41,7 @@ const BurgerMenu = () => {
     { to: '/info', label: 'INFO' },
     { to: '/contact', label: 'CONTACTS' },
     { to: '/about', label: 'ABOUT ME' },
-    { to: '/sitemap.html', label: 'SITEMAP', isExternal: true },
+    { to: '/sitemap.html', label: 'SITE MAP', isExternal: true },
   ];
 
   return (
@@ -66,7 +66,6 @@ const BurgerMenu = () => {
             exit="closed"
             variants={menuVariants}
             transition={{ duration: 0.3 }}
-            role="navigation"
             aria-label="Mobile navigation menu"
           >
             {navLinks.map((link, index) => (

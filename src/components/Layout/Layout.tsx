@@ -31,12 +31,12 @@ export const Layout: React.FC = () => {
         Skip to main content
       </a>
       <Header />
-      <main id="main-content" role="main">
+      <main id="main-content">
         <Suspense>
           <Outlet />
         </Suspense>
       </main>
-      {(location.pathname !== '/' && location.pathname !== '/home') && <Footer />}
+      <Footer />
     </>
   );
 };

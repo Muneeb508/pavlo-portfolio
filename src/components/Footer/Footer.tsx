@@ -77,9 +77,9 @@ const Footer: React.FC = () => {
             <a 
               href="/sitemap.html" 
               style={{ textDecoration: 'none', color: 'inherit' }}
-              aria-label="View sitemap"
+              aria-label="View site map"
             >
-              Sitemap
+              Site Map
             </a>
           </COLLECTION_4SEC_DESCRIPTION>
         </CollectionWrapper>
@@ -102,12 +102,13 @@ function renderItem(sec: FooterSection) {
         href={sec.link}
         target={external ? '_blank' : undefined}
         rel={external ? 'noopener noreferrer' : undefined}
-        style={{ textDecoration: 'none' }}
+        style={{ textDecoration: 'none', color: 'inherit', display: 'inline-flex', alignItems: 'center' }}
         aria-label={sec.text ? `${sec.text}${external ? ' (opens in new tab)' : ''}` : undefined}
       >
         <COLLECTION_4SEC_DESCRIPTION as={Tag}
           dangerouslySetInnerHTML={{ __html: sec.text }}
         />
+        {external && <span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab">↗</span>}
       </a>
     );
   }

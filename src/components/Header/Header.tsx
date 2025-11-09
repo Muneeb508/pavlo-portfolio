@@ -30,12 +30,13 @@ const Header: React.FC = () => {
   const isMobile = useMediaQuery({ query: '(max-width: 773px)' });
 
   return (
-    <NavbarContainer $isScrolled={isScrolled} role="banner">
+    <NavbarContainer $isScrolled={isScrolled}>
     <HeaderWrapper>
       <Logo to="/home" aria-label="Home - Pavlo Troph Portfolio">
         <img src={LogoIcon} alt="Pavlo Troph Portfolio Logo" />
       </Logo>
-      <NavList role="navigation" aria-label="Main navigation">
+      <nav aria-label="Main navigation">
+      <NavList>
         {isMobile ? (
           <BurgerMenu />
         ) : (
@@ -62,14 +63,15 @@ const Header: React.FC = () => {
               <a 
                 href="/sitemap.html" 
                 style={{ textDecoration: 'none', color: 'inherit' }}
-                aria-label="View sitemap"
+                aria-label="View site map"
               >
-                Sitemap
+                Site Map
               </a>
             </NavItem>
           </>
         )}
-      </NavList></HeaderWrapper>
+      </NavList>
+      </nav></HeaderWrapper>
     </NavbarContainer>
   );
 };

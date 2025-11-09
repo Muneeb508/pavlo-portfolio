@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 
 import CollectionComponent from '../../components/CollectionComponent/CollectionComponent';
 import CollectionSlider from '../../components/CollectionsSwiper/CollectionsSwiper';
+import GoogleSearch from '../../components/GoogleSearch/GoogleSearch';
 import Loading from '../../assets/video/logo_animated_hq.webm';
 import { NotFoundWraperr, NotFoundText } from '../Work/Work.styled';
 
@@ -144,6 +145,9 @@ const CollectionPage: React.FC<CollectionPageProps> = ({ source }) => {
         <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clipPath: 'inset(50%)', whiteSpace: 'nowrap', border: 0 }}>
           {project.title}
         </h1>
+        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+          <GoogleSearch />
+        </div>
         <CollectionComponent
           collection={{
             id: project.id,

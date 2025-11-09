@@ -1,0 +1,18 @@
+/* Fix for W3C CSS validation: transition-delay must have units */
+/* This file fixes invalid transition-delay: 0 from AOS library */
+/* The AOS library CSS contains transition-delay: 0 which is invalid CSS */
+/* Valid CSS requires units: 0s or 0ms */
+
+/* Note: This fix may not resolve the issue in compiled/bundled CSS */
+/* The transition-delay: 0 issue is in the AOS library's source CSS file */
+/* For a complete fix, consider:
+   1. Patching the AOS CSS file directly in node_modules
+   2. Using a post-build script to replace "transition-delay: 0" with "transition-delay: 0s"
+   3. Or switching to a different animation library
+*/
+
+/* Override AOS animation delays - this works for runtime but not compiled CSS */
+[data-aos] {
+  transition-delay: 0s !important;
+}
+
