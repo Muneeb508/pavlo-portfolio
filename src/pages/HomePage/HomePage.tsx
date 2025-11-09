@@ -61,6 +61,7 @@ const Home: React.FC = () => {
         <meta name="twitter:description" content="Multidisciplinary artist based in Toronto specializing in CGI, Graphic Design & Cinematography." />
       </Helmet>
       <HomeContainer>
+        {/* h1 is in static HTML for SEO - this is a duplicate that React will render */}
         <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clipPath: 'inset(50%)', whiteSpace: 'nowrap', border: 0 }}>
           Pavlo Troph Portfolio
         </h1>

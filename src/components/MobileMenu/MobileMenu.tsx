@@ -41,6 +41,7 @@ const BurgerMenu = () => {
     { to: '/info', label: 'INFO' },
     { to: '/contact', label: 'CONTACTS' },
     { to: '/about', label: 'ABOUT ME' },
+    { to: '/sitemap.html', label: 'SITEMAP', isExternal: true },
   ];
 
   return (
@@ -70,7 +71,11 @@ const BurgerMenu = () => {
           >
             {navLinks.map((link, index) => (
               <MenuLink key={index} onClick={() => setIsOpen(false)}>
-                <StyledNavLink to={link.to}>{link.label}</StyledNavLink>
+                {link.isExternal ? (
+                  <a href={link.to} style={{ textDecoration: 'none', color: 'inherit' }}>{link.label}</a>
+                ) : (
+                  <StyledNavLink to={link.to}>{link.label}</StyledNavLink>
+                )}
               </MenuLink>
             ))}
           </MenuOverlay>
