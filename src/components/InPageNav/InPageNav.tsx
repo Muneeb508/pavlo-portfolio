@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import GoogleSearch from '../GoogleSearch/GoogleSearch';
 
 const linkStyle: React.CSSProperties = {
   color: 'inherit',
@@ -36,11 +35,6 @@ const InPageNav: React.FC = () => {
         <Link to="/info" style={linkStyle} aria-label="Go to Info">Info</Link>
         <Link to="/contact" style={linkStyle} aria-label="Go to Contact">Contact</Link>
         <a href="/sitemap.html" style={linkStyle} aria-label="View sitemap">Sitemap</a>
-      </div>
-
-      <div style={rowStyle}>
-        {/* Provide a visible search on the page in case header/search isn't available */}
-        <GoogleSearch />
       </div>
     </nav>
   );
