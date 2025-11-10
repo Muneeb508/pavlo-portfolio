@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
+import GoogleSearch from '../../components/GoogleSearch/GoogleSearch';
 import {
   HOME_BUTTON_MAIN,
   HOME_BUTTON_RESIZABLE_BAR,
@@ -61,6 +62,7 @@ const Home: React.FC = () => {
         <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clipPath: 'inset(50%)', whiteSpace: 'nowrap', border: 0 }}>
           Pavlo Troph Portfolio
         </h1>
+        <GoogleSearch />
         <HOME_BUTTON to="/work" label="WORK" />
         <HOME_BUTTON to="/photography" label="PHOTOGRAPHY" />
         <HOME_BUTTON to="/info" label="INFO" />
