@@ -79,10 +79,6 @@ const Work: React.FC = () => {
     <>
       <Helmet>
         <title>Work / Projects | Pavlo Troph Portfolio</title>
-        <meta
-          name="description"
-          content="Selected projects by Pavlo Troph: branding, UI, motion, 3D, and marketing visuals for FiveMods, Network Graphics, and more."
-        />
         <meta property="og:title" content="Work / Projects | Pavlo Troph Portfolio" />
         <meta property="og:description" content="Selected projects by Pavlo Troph: branding, UI, motion, 3D, and marketing visuals for FiveMods, Network Graphics, and more." />
         <meta property="og:url" content="https://pavlo-protfolio.vercel.app/work" />

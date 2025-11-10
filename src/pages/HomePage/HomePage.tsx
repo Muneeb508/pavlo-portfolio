@@ -49,10 +49,6 @@ const Home: React.FC = () => {
     <>
       <Helmet>
         <title>Pavlo Troph - Portfolio | Home</title>
-        <meta
-          name="description"
-          content="Pavlo Troph is a multidisciplinary artist: Graphic Design, CGI, Photography, Cinematography, Art Direction."
-        />
         <meta property="og:title" content="Pavlo Troph - Portfolio" />
         <meta property="og:description" content="Pavlo Troph is a multidisciplinary artist: Graphic Design, CGI, Photography, Cinematography, Art Direction." />
         <meta property="og:url" content="https://pavlo-protfolio.vercel.app/" />

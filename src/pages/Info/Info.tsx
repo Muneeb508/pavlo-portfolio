@@ -47,10 +47,6 @@ const Info: React.FC = () => {
     <>
       <Helmet>
         <title>Info / CV | Pavlo Troph Portfolio</title>
-        <meta
-          name="description"
-          content="Info & CV — tools, skills, and experience of Pavlo Troph. Available for collaborations and studio roles."
-        />
         <meta property="og:title" content="Info / CV | Pavlo Troph Portfolio" />
         <meta property="og:description" content="Info & CV — tools, skills, and experience of Pavlo Troph. Available for collaborations and studio roles." />
         <meta property="og:url" content="https://pavlo-protfolio.vercel.app/info" />
