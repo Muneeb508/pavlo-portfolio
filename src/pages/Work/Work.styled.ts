@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
 export const WorkContainer = styled.div`
-
 display: flex;
-    flex-direction: column;
-margin: 78px 0px auto;
+flex-direction: column;
+margin: 78px auto 10px;
+max-width: 1440px;
+padding: 0px 18px;
+
 @media screen and (min-width: 744px){
-
-
+  padding: 0px 24px;
 }
 
 @media screen and (min-width: 1440px){
-
-
+  padding: 0px 24px;
 }
 `;
 

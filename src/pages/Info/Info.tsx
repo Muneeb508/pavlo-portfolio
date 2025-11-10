@@ -46,10 +46,10 @@ const Info: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Info / CV | Pavlo Troph Portfolio</title>
-        <meta property="og:title" content="Info / CV | Pavlo Troph Portfolio" />
-        <meta name="description" content="Info & CV — tools, skills, and experience of Pavlo Troph. Available for collaborations and studio roles." />
-        <meta property="og:description" content="Info & CV — tools, skills, and experience of Pavlo Troph. Available for collaborations and studio roles." />
+        <title>Info / CV</title>
+        <meta property="og:title" content="Info / CV" />
+        <meta name="description" content="Info & CV — tools, skills, and experience of Pavlo Troph . Available for collaborations and studio roles." />
+        <meta property="og:description" content="Info & CV — tools, skills, and experience of Pavlo Troph . Available for collaborations and studio roles." />
         <meta property="og:url" content="https://pavlo-protfolio.vercel.app/info" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />

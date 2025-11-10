@@ -18,3 +18,12 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+// Dispatch event for prerender plugin after React hydration
+if (typeof window !== 'undefined') {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      window.dispatchEvent(new Event('render-complete'));
+    }, 1000);
+  });
+}

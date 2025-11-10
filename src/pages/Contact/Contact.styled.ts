@@ -42,23 +42,26 @@ color: #fff;
 
 export const WrapperInfo = styled.div`
 display: flex;
-gap: 20%;
- margin-top: 50px;
- margin-bottom: 50px;
+flex-direction: column;
+gap: 30px;
+margin-top: 50px;
+margin-bottom: 50px;
+
 @media screen and (min-width: 744px){
-  gap: 50%;
+  flex-direction: row;
+  gap: 80px;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 @media screen and (min-width: 1440px){
-
-display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 50%;
-    margin-top: 50px;
-    height: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 120px;
+  margin-top: 50px;
 }
 
 

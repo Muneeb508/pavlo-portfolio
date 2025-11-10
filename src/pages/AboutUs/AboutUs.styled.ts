@@ -12,7 +12,6 @@ export const AboutContainer = styled.div`
 margin: 78px auto 10px;
 height: 100%;
 max-width: 1440px;
-padding: 16px 32px;
 display: flex;
 flex-direction: column;
 margin-bottom: 24px;
