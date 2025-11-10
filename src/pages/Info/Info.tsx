@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import QuoteBlock from '../../components/Quote/QuoteBlock';
-import GoogleSearch from '../../components/GoogleSearch/GoogleSearch';
+import InPageNav from '../../components/InPageNav/InPageNav';
 import {
   CollectionContainer,
   CollectionWrapper,
@@ -48,6 +48,7 @@ const Info: React.FC = () => {
       <Helmet>
         <title>Info / CV | Pavlo Troph Portfolio</title>
         <meta property="og:title" content="Info / CV | Pavlo Troph Portfolio" />
+        <meta name="description" content="Info & CV — tools, skills, and experience of Pavlo Troph. Available for collaborations and studio roles." />
         <meta property="og:description" content="Info & CV — tools, skills, and experience of Pavlo Troph. Available for collaborations and studio roles." />
         <meta property="og:url" content="https://pavlo-protfolio.vercel.app/info" />
         <meta property="og:type" content="website" />
@@ -59,7 +60,7 @@ const Info: React.FC = () => {
       <CollectionContainer>
         <CollectionAdditionalWrapper>
           <CollectionHeader>
-            <GoogleSearch />
+            <InPageNav />
             <h1>Info</h1>
             {[
               { tag: 'h2', text: 'Pavlo Troph', label: 'Artist Name' },

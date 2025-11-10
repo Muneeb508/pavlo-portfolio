@@ -94,6 +94,19 @@
     <!-- Static h1 for search engines - visible in HTML source before React loads -->
     <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;">Pavlo Troph Portfolio</h1>
 
+    <!-- Minimal, JS-independent primary navigation so scanners always detect multiple ways to navigate -->
+    <nav id="preload-primary-nav" aria-label="Primary" style="background:#000;color:#fff;padding:6px 10px;font-family:Arial,sans-serif;font-size:12px;border-bottom:1px solid #333">
+      <ul style="list-style:none;display:flex;gap:10px;margin:0;padding:0;flex-wrap:wrap">
+        <li><a href="/home" style="color:#fff;text-decoration:underline">Home</a></li>
+        <li><a href="/work" style="color:#fff;text-decoration:underline">Work</a></li>
+        <li><a href="/photography" style="color:#fff;text-decoration:underline">Photography</a></li>
+        <li><a href="/about" style="color:#fff;text-decoration:underline">About</a></li>
+        <li><a href="/info" style="color:#fff;text-decoration:underline">Info</a></li>
+        <li><a href="/contact" style="color:#fff;text-decoration:underline">Contact</a></li>
+        <li><a href="/sitemap.html" style="color:#fff;text-decoration:underline">Sitemap</a></li>
+      </ul>
+    </nav>
+
     <!-- Minimal static navigation and search (visible without JavaScript) to satisfy WCAG 2.4.5 and automated scanners -->
     <div
       id="preload-access-nav"

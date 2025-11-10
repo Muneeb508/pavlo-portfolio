@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { supabase } from '../../supabaseClient';
 import { Reveal } from '../Reveal/Reveal';
-import GoogleSearch from '../../components/GoogleSearch/GoogleSearch';
+import InPageNav from '../../components/InPageNav/InPageNav';
 
 import {
   AboutContainer,
@@ -58,6 +58,7 @@ const AboutUs: React.FC = () => {
       <Helmet>
         <title>About | Pavlo Troph Portfolio</title>
         <meta property="og:title" content="About | Pavlo Troph Portfolio" />
+        <meta name="description" content="About Pavlo Troph — Toronto-based designer creating graphic design, 3D, video, and photography for games and brands." />
         <meta property="og:description" content="About Pavlo Troph — Toronto-based designer creating graphic design, 3D, video, and photography for games and brands." />
         <meta property="og:url" content="https://pavlo-protfolio.vercel.app/about" />
         <meta property="og:type" content="website" />
@@ -69,7 +70,7 @@ const AboutUs: React.FC = () => {
       <AdditionalWrapper>
         <AboutContainer>
           <AboutTitle as="h1">About</AboutTitle>
-          <GoogleSearch />
+          <InPageNav />
 
           {blocks.map(block => (
           <Reveal key={block.id}>

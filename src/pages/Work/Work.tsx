@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { supabase } from '../../supabaseClient';
 import WorkItemComponent from '../../components/WorkItemComponent/WorkItemComponent';
-import GoogleSearch from '../../components/GoogleSearch/GoogleSearch';
+import InPageNav from '../../components/InPageNav/InPageNav';
 import {
   WorkContainer,
   WorkFilterWrapp,
@@ -80,6 +80,7 @@ const Work: React.FC = () => {
       <Helmet>
         <title>Work / Projects | Pavlo Troph Portfolio</title>
         <meta property="og:title" content="Work / Projects | Pavlo Troph Portfolio" />
+        <meta name="description" content="Selected projects by Pavlo Troph: branding, UI, motion, 3D, and marketing visuals for FiveMods, Network Graphics, and more." />
         <meta property="og:description" content="Selected projects by Pavlo Troph: branding, UI, motion, 3D, and marketing visuals for FiveMods, Network Graphics, and more." />
         <meta property="og:url" content="https://pavlo-protfolio.vercel.app/work" />
         <meta property="og:type" content="website" />
@@ -91,7 +92,7 @@ const Work: React.FC = () => {
       <WorkContainer>
         <WorkTitelContainer>
           <WorkTitel as="h1">WORK</WorkTitel>
-          <GoogleSearch />
+          <InPageNav />
         <WorkFilterWrapp>
           {['ALL', 'COMMERCIAL', 'PERSONAL'].map(cat => (
             <WorkTextFilter
