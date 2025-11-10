@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import ContactForm from '../../components/ContactForm/ContactForm';
-import GoogleSearch from '../../components/GoogleSearch/GoogleSearch';
 import {
   AdditionalWrapper,
   ContactContainer,
@@ -32,7 +31,6 @@ const Contact: React.FC = () => {
       <AdditionalWrapper>
         <ContactContainer>
           <h1>Contact</h1>
-          <GoogleSearch />
           <ContactTitel as="h2">Let's Talk</ContactTitel>
           <WrapperInfo>
             <SocialContainerLink>
