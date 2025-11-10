@@ -41,7 +41,7 @@ const BurgerMenu = () => {
     { to: '/info', label: 'INFO' },
     { to: '/contact', label: 'CONTACTS' },
     { to: '/about', label: 'ABOUT ME' },
-    { to: '/sitemap.html', label: 'SITE MAP', isExternal: true },
+    { to: '/sitemap.html', label: 'SITEMAP', isExternal: true },
   ];
 
   return (

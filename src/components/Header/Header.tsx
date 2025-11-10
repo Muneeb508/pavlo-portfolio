@@ -63,9 +63,9 @@ const Header: React.FC = () => {
               <a 
                 href="/sitemap.html" 
                 style={{ textDecoration: 'none', color: 'inherit' }}
-                aria-label="View site map"
+                aria-label="View sitemap"
               >
-                Site Map
+                Sitemap
               </a>
             </NavItem>
           </>
