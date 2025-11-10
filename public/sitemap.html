@@ -8,6 +8,31 @@
   </head>
   <body>
     <h1>Sitemap</h1>
+    
+    <!-- Search option for sitemap page -->
+    <section aria-label="Search">
+      <h2 style="font-size: 1.2rem; margin: 20px 0 10px 0;">Search the Portfolio</h2>
+      <form method="GET" action="/" style="margin: 15px 0; padding: 15px; background: #f5f5f5; border-radius: 5px;">
+        <label for="search-input" style="display: block; margin-bottom: 8px; font-weight: bold;">
+          Search for projects, photos, and content:
+        </label>
+        <input
+          type="search"
+          id="search-input"
+          name="q"
+          placeholder="Enter keywords..."
+          style="width: 100%; max-width: 400px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem;"
+          aria-label="Search portfolio"
+        />
+        <button type="submit" style="margin-top: 10px; padding: 10px 20px; background: #333; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem;">
+          Search
+        </button>
+      </form>
+      <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+        Tip: You can also use the search option provided on each page.
+      </p>
+    </section>
+    
     <nav aria-label="Site navigation">
       <ul>
         <li><a href="/home">Home</a></li>
