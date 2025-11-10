@@ -19,6 +19,7 @@ const Contact: React.FC = () => {
     <>
       <Helmet>
         <title>Contact | Pavlo Troph Portfolio</title>
+        <meta name="description" content="Contact Pavlo Troph — inquiries, collaborations, and freelance/studio opportunities." />
         <meta property="og:title" content="Contact | Pavlo Troph Portfolio" />
         <meta property="og:description" content="Contact Pavlo Troph — inquiries, collaborations, and freelance/studio opportunities." />
         <meta property="og:url" content="https://pavlo-protfolio.vercel.app/contact" />
