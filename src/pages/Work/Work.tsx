@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { supabase } from '../../supabaseClient';
 import WorkItemComponent from '../../components/WorkItemComponent/WorkItemComponent';
 import InPageNav from '../../components/InPageNav/InPageNav';
+import GoogleSearch from '../../components/GoogleSearch/GoogleSearch';
 import {
   WorkContainer,
   WorkFilterWrapp,
@@ -93,6 +94,7 @@ const Work: React.FC = () => {
         <WorkTitelContainer>
           <WorkTitel as="h1">WORK</WorkTitel>
           <InPageNav />
+          <GoogleSearch />
         <WorkFilterWrapp>
           {['ALL', 'COMMERCIAL', 'PERSONAL'].map(cat => (
             <WorkTextFilter

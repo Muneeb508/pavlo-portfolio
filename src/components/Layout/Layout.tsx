@@ -2,7 +2,6 @@ import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import InPageNav from '../InPageNav/InPageNav';
-import GoogleSearch from '../GoogleSearch/GoogleSearch';
 import Footer from '../Footer/Footer';
 
 export const Layout: React.FC = () => {
@@ -34,11 +33,10 @@ export const Layout: React.FC = () => {
       </a>
 
       <Header />
-      {/* Ensure an always-present, visible navigation + search inside page content
+      {/* Ensure an always-present, visible navigation inside page content
           so that static snapshots and users with JS disabled still have multiple
-          ways to reach pages (links + search + sitemap). */}
+          ways to reach pages (links + sitemap). */}
       <InPageNav />
-      <GoogleSearch />
       <main id="main-content">
         <Suspense>
           <Outlet key={location.pathname} />
