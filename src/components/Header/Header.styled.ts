@@ -42,7 +42,8 @@ export const NavbarContainer = styled.header<{ $isScrolled: boolean }>`
 
 export const HeaderWrapper = styled.div`
       display: flex;
-    width: 1440px;
+    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
