@@ -3,34 +3,40 @@ import { NavLink } from 'react-router-dom';
 
 export const NavbarContainer = styled.header<{ $isScrolled: boolean }>`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-   background: rgb(0, 0, 0);
-  padding: 14px 18px;
+  background: rgb(0, 0, 0);
+  padding: 0;
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
   transition: all 0.3s ease;
   z-index: 99;
+  will-change: transform;
 
   @media (max-width: 768px) {
-    padding: 14px 18px;
-    max-width: 768px;
+    padding: 0;
+    max-width: 100%;
+    margin: 0;
   }
   
   @media screen and (min-width: 768px) {
-    padding: 14px 24px;
+    padding: 0;
     width: 100%;
-    margin: 0 auto;
-    }
+    margin: 0;
+  }
 
   @media screen and (min-width: 1440px) {
-    padding: 14px 24px;
+    padding: 0;
     width: 100%;
-    margin: 0 auto;
-    }
+    margin: 0;
+  }
 
   &:hover,
   &:focus,
@@ -41,29 +47,57 @@ export const NavbarContainer = styled.header<{ $isScrolled: boolean }>`
 `;
 
 export const HeaderWrapper = styled.div`
-      display: flex;
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
-
+  display: flex;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 14px 18px;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  outline: none;
+  
+  @media screen and (min-width: 768px) {
+    padding: 14px 24px;
+  }
 `;
 export const Logo = styled(NavLink)`
   font-size: 1.5rem;
   font-weight: bold;
   color: #00d1ff;
   text-decoration: none;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
   
   img {
-  height: 50px;
-  overflov: hidden;
-
+    height: 50px;
+    width: auto;
+    display: block;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
   }
   &:hover,
   &:focus,
   &.active {
     color: #00ffe7;
+    outline: none;
+    border: none;
+  }
+  &:focus-visible {
+    outline: 2px solid #00d1ff;
+    outline-offset: 2px;
+  }
+  &::before,
+  &::after {
+    display: none;
+    content: none;
   }
 `;
 
@@ -115,7 +149,18 @@ color: #fff;
     color:rgb(255, 255, 255);
   }
 
-  &::bevore {
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #808080;
+    transition: width 0.3s ease-in-out;
+  }
+
+  &::after {
     content: '';
     position: absolute;
     left: 0;
@@ -127,7 +172,7 @@ color: #fff;
   }
 
   &.active {
-   color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     &::after {
       width: 100%;
     }
@@ -135,6 +180,6 @@ color: #fff;
 
   &:hover::after {
     width: 100%;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
   }
 `;

@@ -32,6 +32,17 @@ export const GlobalStyle = css`
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
   }
 
   body.modal-open {
