@@ -19,7 +19,7 @@ export const SearchInput = styled.input`
   background: #1a1a1a;
   color: #fff;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 1rem;
   flex: 1;
   
   &:focus {
@@ -38,7 +38,7 @@ export const SearchButton = styled.button`
   color: #000;
   border: none;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease;

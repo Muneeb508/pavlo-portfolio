@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../Header/Header';
 import InPageNav from '../InPageNav/InPageNav';
+import GoogleSearch from '../GoogleSearch/GoogleSearch';
 import Footer from '../Footer/Footer';
 
 export const Layout: React.FC = () => {
@@ -37,6 +38,7 @@ export const Layout: React.FC = () => {
           so that static snapshots and users with JS disabled still have multiple
           ways to reach pages (links + search + sitemap). */}
       <InPageNav />
+      <GoogleSearch />
       <main id="main-content">
         <Suspense>
           <Outlet key={location.pathname} />
