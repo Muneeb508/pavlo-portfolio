@@ -9,7 +9,7 @@ padding: 0px 24px;
 `;
 
 export const AboutContainer = styled.div`
-margin: 78px auto 10px;
+margin: 0 auto 10px;
 height: 100%;
 max-width: 1440px;
 display: flex;

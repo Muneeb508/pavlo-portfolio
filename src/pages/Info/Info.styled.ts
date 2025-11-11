@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 
 export const InfoContainer = styled.div`
-margin: 78px auto;
-margin-top: 100px;
+margin: 0 auto;
+margin-top: 20px;
 height: 100%;
 max-width: 1440px;
     padding: 16px 32px;
@@ -19,7 +19,7 @@ margin-bottom: 0%;
 @media screen and (min-width: 1440px){
 
 margin: 0 auto;
-margin-top: 100px;
+margin-top: 20px;
 height: 100%;
 max-width: 1440px;
     padding: 16px 0px;

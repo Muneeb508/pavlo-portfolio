@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const WorkContainer = styled.div`
 display: flex;
 flex-direction: column;
-margin: 78px auto 10px;
+margin: 0 auto 10px;
 max-width: 1440px;
 padding: 0px 18px;
 
@@ -18,7 +18,7 @@ padding: 0px 18px;
 
 export const WorkTitelContainer = styled.div`
 margin: 0 auto;
-margin-top: 30px;
+margin-top: 20px;
 margin-bottom: 50px;
 @media screen and (min-width: 744px){
 

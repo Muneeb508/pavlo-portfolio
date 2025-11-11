@@ -8,9 +8,9 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: calc(100vh - 78px);
-  padding: 78px 0px 0px 0px;
+  padding: 120px 0px 0px 0px;
 `;
 
 export const SpanTitel = styled.span``;
