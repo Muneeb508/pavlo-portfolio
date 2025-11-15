@@ -35,7 +35,7 @@ const BurgerMenu = () => {
   }, [isOpen]);
 
   const navLinks = [
-    // { to: '/home', label: 'WELCOME' },
+    { to: '/home', label: 'HOME' },
     { to: '/work', label: 'WORK' },
     { to: '/photography', label: 'PHOTOGRAPHY' },
     { to: '/info', label: 'INFO' },

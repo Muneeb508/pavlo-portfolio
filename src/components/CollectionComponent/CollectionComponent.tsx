@@ -670,7 +670,6 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
                           style={{ textDecoration: 'none', color: 'inherit' }}
                         >
                           {element}
-                          <span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab">↗</span>
                         </a>
                       ) : element;
                     })}

@@ -9,7 +9,7 @@ padding: 0px 24px;
 `;
 
 export const ContactContainer = styled.div`
-margin: 0 auto 10px;
+margin: 78px auto 10px;
 height: 100%;
 max-width: 1440px;
 padding: 16px 0px;
@@ -42,16 +42,12 @@ color: #fff;
 
 export const WrapperInfo = styled.div`
 display: flex;
-flex-direction: column;
-gap: 30px;
+gap: 10%;
 margin-top: 50px;
 margin-bottom: 50px;
 
 @media screen and (min-width: 744px){
-  flex-direction: row;
-  gap: 80px;
-  justify-content: flex-start;
-  align-items: flex-start;
+  gap: 50%;
 }
 
 @media screen and (min-width: 1440px){
@@ -60,8 +56,9 @@ margin-bottom: 50px;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 120px;
+  gap: 50%;
   margin-top: 50px;
+  height: 30%;
 }
 
 
@@ -80,6 +77,9 @@ font-size: 11px;
 letter-spacing: -0.02em;
 color: #808080;
 
+ display: inline-block;
+ will-change: transform, color, text-shadow;
+ cursor: pointer;
 @media screen and (min-width: 744px){
 font-family: var(--second-family);
 font-weight: 400;
@@ -102,6 +102,20 @@ font-weight: 600;
 font-size: 14px;
 line-height: 162%;
 color: #fff;
+transition: color 180ms ease, text-shadow 180ms ease, transform 180ms ease;
+
+&:hover,
+&:focus {
+  color: #2ea3ff;
+  text-shadow: 0 0 10px rgba(46,163,255,0.25);
+  transform: translateX(2px);
+}
+
+&:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46,163,255,0.12);
+  border-radius: 2px;
+}
 @media screen and (min-width: 744px){
 font-size: 16px;
 

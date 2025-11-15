@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import QuoteBlock from '../../components/Quote/QuoteBlock';
-import InPageNav from '../../components/InPageNav/InPageNav';
 import {
   CollectionContainer,
   CollectionWrapper,
@@ -57,11 +56,10 @@ const Info: React.FC = () => {
         <meta name="twitter:description" content="Info & CV — tools, skills, and experience of Pavlo Troph. Available for collaborations and studio roles." />
       </Helmet>
       
-      <CollectionContainer>
+      <CollectionContainer style={{ marginTop: '10px' }}>
         <CollectionAdditionalWrapper>
           <CollectionHeader>
-            <InPageNav />
-             <h1></h1> 
+            <h1></h1>
             {[
               { tag: 'h2', text: 'Pavlo Troph', label: 'Artist Name' },
             { tag: 'h3', text: 'Graphic Design\nCGI\nPhotography\nCinematography\nArt Direction', label: 'Specialization' },

@@ -136,6 +136,9 @@ font-size: 14px;
 line-height: 162%;
 color: #fff;
 @media screen and (min-width: 744px){
+display: inline-block;
+will-change: transform, color, text-shadow;
+cursor: pointer;
 font-size: 18px;
 
 }
@@ -185,17 +188,19 @@ flex-direction: column;
 `;
 
 export const SocialLink = styled.a`
-font-family: var(--font-family);
-font-weight: 400;
-font-size: 11px;
-line-height: 162%;
-color: #fff;
-@media screen and (min-width: 744px){
-font-size: 16px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 162%;
+  color: #fff;
+  transition: color 200ms ease;
 
-}
+  &:hover,
+  &:focus {
+    color: #2ea3ff;
+  }
 
-@media screen and (min-width: 1440px){
-    
-}
+  @media screen and (min-width: 744px){
+    font-size: 16px;
+  }
 `;

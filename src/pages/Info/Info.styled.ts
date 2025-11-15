@@ -167,6 +167,23 @@ font-weight: 600;
 font-size: 14px;
 line-height: 162%;
 color: #fff;
+transition: color 180ms ease, text-shadow 180ms ease, transform 180ms ease;
+display: inline-block;
+will-change: transform, color, text-shadow;
+cursor: pointer;
+
+&:hover,
+&:focus {
+  color: #2ea3ff;
+  text-shadow: 0 0 10px rgba(46,163,255,0.25);
+  transform: translateX(2px);
+}
+
+&:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46,163,255,0.12);
+  border-radius: 2px;
+}
 @media screen and (min-width: 744px){
 font-size: 16px;
 
@@ -287,4 +304,28 @@ font-size: 16px;
 
 
 }
+`;
+
+export const InfoTwoColumnLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+
+  @media screen and (min-width: 744px) {
+    flex-direction: row;
+    gap: 20%;
+    flex-wrap: nowrap;
+  }
+`;
+
+export const InfoColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+
+  @media screen and (min-width: 744px) {
+    flex: 1;
+  }
 `;

@@ -194,8 +194,8 @@ export const VideoPreview = styled.div<{ $isVisible: boolean; $imageUrl: string 
 
   video {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     top: 0;
     left: 0;

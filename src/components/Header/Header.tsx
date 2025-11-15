@@ -42,22 +42,22 @@ const Header: React.FC = () => {
         ) : (
           <>
             <NavItem>
-              <StyledNavLink to="/home">Home</StyledNavLink>
+              <StyledNavLink to="/home">HOME</StyledNavLink>
             </NavItem>
             <NavItem>
-              <StyledNavLink to="/work">Work</StyledNavLink>
+              <StyledNavLink to="/work">WORK</StyledNavLink>
             </NavItem>
             <NavItem>
-              <StyledNavLink to="/photography">Photography</StyledNavLink>
+              <StyledNavLink to="/photography">PHOTOGRAPHY</StyledNavLink>
             </NavItem>
             <NavItem>
-              <StyledNavLink to="/about">About</StyledNavLink>
+              <StyledNavLink to="/info">INFO</StyledNavLink>
             </NavItem>
             <NavItem>
-              <StyledNavLink to="/info">Info</StyledNavLink>
+              <StyledNavLink to="/contact">CONTACTS</StyledNavLink>
             </NavItem>
             <NavItem>
-              <StyledNavLink to="/contact">Contact</StyledNavLink>
+              <StyledNavLink to="/about">ABOUT ME</StyledNavLink>
             </NavItem>
             <NavItem className="hidden">
               <a 

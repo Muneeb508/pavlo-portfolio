@@ -5,6 +5,7 @@ import Footer from '../Footer/Footer';
 
 export const Layout: React.FC = () => {
   const location = useLocation();
+  const isHomePage = location.pathname === '/home';
 
   return (
     <>
@@ -16,7 +17,7 @@ export const Layout: React.FC = () => {
           </Suspense>
         </main>
       </div>
-      <Footer />
+      {!isHomePage && <Footer />}
     </>
   );
 };

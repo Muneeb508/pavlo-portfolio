@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { supabase } from '../../supabaseClient';
 import { Reveal } from '../Reveal/Reveal';
-import InPageNav from '../../components/InPageNav/InPageNav';
 
 import {
   AboutContainer,
@@ -70,7 +69,6 @@ const AboutUs: React.FC = () => {
       <AdditionalWrapper>
         <AboutContainer>
           <AboutTitle as="h1">About</AboutTitle>
-          <InPageNav />
 
           {blocks.map(block => (
           <Reveal key={block.id}>

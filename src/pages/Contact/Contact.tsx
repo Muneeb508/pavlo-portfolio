@@ -30,7 +30,9 @@ const Contact: React.FC = () => {
       
       <AdditionalWrapper>
         <ContactContainer>
-           <h1></h1>
+          <h1 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clipPath: 'inset(50%)', whiteSpace: 'nowrap', border: 0 }}>
+            Contact
+          </h1>
           <ContactTitel as="h2">Let's Talk</ContactTitel>
           <WrapperInfo>
             <SocialContainerLink>
@@ -39,13 +41,13 @@ const Contact: React.FC = () => {
                 info@pavlotroph.com
               </EmailSocialLink>
               <EmailSocialLink href="https://www.linkedin.com/in/pavlo-trofimenko/" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile (opens in new tab)">
-                LinkedIn<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab"></span>
+                LinkedIn
               </EmailSocialLink>
               <EmailSocialLink href="https://t.me/pavlotroph" target="_blank" rel="noopener noreferrer" aria-label="Contact on Telegram (opens in new tab)">
-                Telegram<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab"></span>
+                Telegram
               </EmailSocialLink>
               <EmailSocialLink href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile (opens in new tab)">
-                Instagram<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab"></span>
+                Instagram
               </EmailSocialLink>
             </SocialContainerLink>
             <LocationContainer>
@@ -56,7 +58,7 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label="View location on Google Maps (opens in new tab)"
               >
-                Toronto, ON, CA<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab"></span>
+                Toronto, ON, CA
               </LocationLink>
             </LocationContainer>
           </WrapperInfo>
