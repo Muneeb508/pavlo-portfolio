@@ -56,7 +56,7 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   border: none;
   outline: none;
-  
+  position: relative;
   @media screen and (min-width: 768px) {
     padding: 14px 24px;
   }
@@ -72,6 +72,7 @@ export const Logo = styled(NavLink)`
   align-items: center;
   margin: 0;
   padding: 0;
+  z-index: 101;
   
   img {
     height: 50px;
@@ -126,6 +127,10 @@ text-align: center;
     &.active {
       color:rgb(255, 255, 255);
     }
+  }
+  
+  &.hidden {
+    display: none;
   }
 `;
 

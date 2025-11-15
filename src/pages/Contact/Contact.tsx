@@ -30,7 +30,7 @@ const Contact: React.FC = () => {
       
       <AdditionalWrapper>
         <ContactContainer>
-          <h1>Contact</h1>
+           <h1></h1>
           <ContactTitel as="h2">Let's Talk</ContactTitel>
           <WrapperInfo>
             <SocialContainerLink>
@@ -39,13 +39,13 @@ const Contact: React.FC = () => {
                 info@pavlotroph.com
               </EmailSocialLink>
               <EmailSocialLink href="https://www.linkedin.com/in/pavlo-trofimenko/" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile (opens in new tab)">
-                LinkedIn<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab">↗</span>
+                LinkedIn<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab"></span>
               </EmailSocialLink>
               <EmailSocialLink href="https://t.me/pavlotroph" target="_blank" rel="noopener noreferrer" aria-label="Contact on Telegram (opens in new tab)">
-                Telegram<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab">↗</span>
+                Telegram<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab"></span>
               </EmailSocialLink>
               <EmailSocialLink href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile (opens in new tab)">
-                Instagram<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab">↗</span>
+                Instagram<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab"></span>
               </EmailSocialLink>
             </SocialContainerLink>
             <LocationContainer>
@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 aria-label="View location on Google Maps (opens in new tab)"
               >
-                Toronto, ON, CA<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab">↗</span>
+                Toronto, ON, CA<span style={{ marginLeft: '4px', fontSize: '0.9em', opacity: 0.7 }} aria-hidden="true" title="Opens in new tab"></span>
               </LocationLink>
             </LocationContainer>
           </WrapperInfo>

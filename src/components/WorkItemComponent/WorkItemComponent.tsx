@@ -81,7 +81,8 @@ const WorkItemComponent: React.FC<WorkItemComponentProps> = ({ work, source }) =
     return (
       <div style={{
         width: '100%',
-        height: '100vh',
+        height: '100%',
+        minHeight: '300px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -94,7 +95,7 @@ const WorkItemComponent: React.FC<WorkItemComponentProps> = ({ work, source }) =
           muted
           playsInline
           aria-label="Loading animation"
-          style={{ width: '150px', height: '150px' }}
+          style={{ width: '80px', height: '80px' }}
         />
       </div>
     );
@@ -142,8 +143,6 @@ const WorkItemComponent: React.FC<WorkItemComponentProps> = ({ work, source }) =
     {isVimeo ? (
       <iframe
         src={`https://player.vimeo.com/video/${vimeo_id}?autoplay=1&muted=1&loop=1&background=1`}
-        width="100%"
-        height="100%"
         frameBorder="0"
         allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
@@ -151,12 +150,10 @@ const WorkItemComponent: React.FC<WorkItemComponentProps> = ({ work, source }) =
         aria-label={title || `Video player for ${work.title || 'work item'}`}
         style={{
           position: 'absolute',
-          top: "-15%",
+          top: 0,
           left: 0,
-          width: '100vw',       // 👈 ключовий момент — viewport ширина
-         height: '100vh', 
-          maxWidth: 'none',
-          maxHeight: 'none',
+          width: '100%',
+          height: '100%',
           border: 'none',
           zIndex: 1,
         }}

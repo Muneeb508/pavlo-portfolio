@@ -52,17 +52,17 @@ font-size: 48px;
 export const WorkFilterWrapp = styled.div`
     margin: 0 auto;
     display: flex;
-    gap: 8%;
+    gap: 0px;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
 @media screen and (min-width: 744px){
-
-
+    gap: 0px;
 }
 
 @media screen and (min-width: 1440px){
-
-
+    gap: 0px;
 }
 `;
 
@@ -77,9 +77,10 @@ export const WorkTextFilter = styled.button`
   background: transparent;
   border: none;
   min-height: 44px;
-  padding: 10px 16px;
+  padding: 10px 8px;
   transition: all 0.3s ease-in-out;
   position: relative;
+  white-space: nowrap;
 
   &:hover {
     color:rgb(255, 255, 255);
@@ -98,10 +99,11 @@ export const WorkTextFilter = styled.button`
 
   @media screen and (min-width: 744px) {
     font-size: 16px;
+    padding: 10px 12px;
   }
 
   @media screen and (min-width: 1440px) {
-    // Можна додавати додаткові стилі для великих екранів
+    padding: 10px 16px;
   }
 `;
 
@@ -177,16 +179,16 @@ export const OriginalLayer = styled.div<{ $isVisible: boolean }>`
 `;
 
 export const VideoPreview = styled.div<{ $isVisible: boolean; $imageUrl: string }>`
-  position: absolute;        // 👈 fixed — прив’язка до viewport
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;           // 👈 повна ширина екрана
-  height: 100vh;          // 👈 повна висота екрана
-  overflow: hidden;     /* 👈 або фіксована висота */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   z-index: 1000;     /* 👈 поверх усього */
   transition: opacity 0.3s ease-out;
   opacity: ${props => props.$isVisible ? 1 : 0};
-  z-index: 0;
+  z-index: 1;
   will-change: opacity;
   background-color: #000;
 
@@ -250,9 +252,10 @@ margin-bottom: 50px;
 `;
 export const WorkItem = styled.div`
 height: 200px;
-width: 100%;
+width: 100vw;
+margin-left: calc(-50vw + 50%);
 @media screen and (min-width: 744px){
-height: 270px
+height: 270px;
 position: relative;
 
 }
@@ -264,7 +267,7 @@ height: 400px;
 `;
 
 export const WorkImage = styled.img`
-  width: 100%;
+  width: 100vw;
   height: 100%;
   object-fit: cover;
   transition: opacity 0.3s ease-in-out;
@@ -340,9 +343,6 @@ export const OriginalContent = styled.div`
   transition: opacity 0.5s ease-in-out;
   z-index: 0;
 `;
-
-
-
 
 
 

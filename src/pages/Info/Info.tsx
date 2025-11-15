@@ -61,16 +61,25 @@ const Info: React.FC = () => {
         <CollectionAdditionalWrapper>
           <CollectionHeader>
             <InPageNav />
-            <h1>Info</h1>
+             <h1></h1> 
             {[
               { tag: 'h2', text: 'Pavlo Troph', label: 'Artist Name' },
             { tag: 'h3', text: 'Graphic Design\nCGI\nPhotography\nCinematography\nArt Direction', label: 'Specialization' },
             { tag: 'h3', text: 'Toronto, ON, CA', label: 'Location' },
             { tag: 'h3', text: 'info@pavlotroph.com', label: 'Contact' },
-          ].map((s, i) => (
+          ].map((s, i) => {
+            // Validate tag to ensure it's a valid HTML tag and not a data URI
+            const isValidTag = (tag: any): tag is keyof JSX.IntrinsicElements => {
+              if (typeof tag !== 'string') return false;
+              // Prevent data URIs and other invalid tag names
+              return /^[a-z][a-z0-9]*$/.test(tag) && !tag.includes(':') && !tag.includes('/');
+            };
+            const validTag = isValidTag(s.tag) ? s.tag : 'h3';
+            
+            return (
             <CollectionWrapper key={i}>
               <COLLECTION_4SEC_TITLE>{s.label}</COLLECTION_4SEC_TITLE>
-              <COLLECTION_4SEC_DESCRIPTION as={s.tag}>
+              <COLLECTION_4SEC_DESCRIPTION as={validTag as any}>
                 {s.text.split('\n').map((line, index) => (
                   <React.Fragment key={index}>
                     {line}
@@ -79,7 +88,8 @@ const Info: React.FC = () => {
                 ))}
               </COLLECTION_4SEC_DESCRIPTION>
             </CollectionWrapper>
-          ))}
+          );
+          })}
         </CollectionHeader>
         <CollectionTextWrapper>
           {[
@@ -151,7 +161,14 @@ const Info: React.FC = () => {
               <COLLECTION_1SEC_TITLE>{section.label}</COLLECTION_1SEC_TITLE>
               <COLLECTION_1SEC_DESCRIPTION>
                 {section.segments.map((seg, idx) => {
-                  const Tag = (seg.tag || 'span') as keyof JSX.IntrinsicElements;
+                  // Validate tag to ensure it's a valid HTML tag and not a data URI
+                  const isValidTag = (tag: any): tag is keyof JSX.IntrinsicElements => {
+                    if (typeof tag !== 'string') return false;
+                    // Prevent data URIs and other invalid tag names
+                    return /^[a-z][a-z0-9]*$/.test(tag) && !tag.includes(':') && !tag.includes('/');
+                  };
+                  
+                  const Tag = isValidTag(seg.tag) ? seg.tag : 'span';
 
                   const renderTextWithBreaks = (text: string) =>
                     text.split("\n").map((line, lineIdx) => (

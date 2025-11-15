@@ -59,7 +59,7 @@ const Header: React.FC = () => {
             <NavItem>
               <StyledNavLink to="/contact">Contact</StyledNavLink>
             </NavItem>
-            <NavItem>
+            <NavItem className="hidden">
               <a 
                 href="/sitemap.html" 
                 style={{ textDecoration: 'none', color: 'inherit' }}

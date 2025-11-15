@@ -5,6 +5,8 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
     display: flex;
     align-items: center;
+    z-index: 101;
+    position: relative;
 
         @media screen and (min-width: 744px){
 
@@ -28,7 +30,9 @@ export const BurgerButton = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 10;
+  z-index: 101;
+  padding: 0;
+  position: relative;
 
       @media screen and (min-width: 744px){
 
@@ -44,9 +48,10 @@ export const BurgerButton = styled.button`
 export const Line = styled(motion.div)`
   width: 40px;
   height: 2px;
-  background: white;
+  background: #ffffff;
   border-radius: 0px;
-   z-index: 10;
+  z-index: 101;
+  position: relative;
 
        @media screen and (min-width: 744px){
 
@@ -64,14 +69,17 @@ export const MenuOverlay = styled(motion.div)`
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   background: rgba(0, 0, 0, 0.96);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  z-index: 1;
+  z-index: 100;
   overflow-y: auto;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 
       @media screen and (min-width: 744px){
 
@@ -82,6 +90,18 @@ export const MenuOverlay = styled(motion.div)`
 
 
 }
+`;
+
+export const MenuLinksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
 `;
 
 export const ButtonWrapp = styled.div`
@@ -109,12 +129,25 @@ font-size: 24px;
 line-height: 135%;
 text-align: center;
 color: var(--white);
-  margin: 12px 0;
+  margin: 0;
+  padding: 12px 0;
   text-decoration: none;
   cursor: pointer;
   transition: color 0.8s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
   &:hover {
     color: #fe5b14;
+  }
+  
+  a, & > * {
+    display: inline-block;
+    text-align: center;
+    width: auto;
+    margin: 0 auto;
   }
 
       @media screen and (min-width: 744px){

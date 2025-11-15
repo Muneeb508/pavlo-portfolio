@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { supabase } from '../../supabaseClient';
 import WorkItemComponent from '../../components/WorkItemComponent/WorkItemComponent';
-import GoogleSearch from '../../components/GoogleSearch/GoogleSearch';
 import {
   WorkContainer,
   WorkFilterWrapp,
@@ -91,8 +90,7 @@ const Work: React.FC = () => {
       
       <WorkContainer>
         <WorkTitelContainer>
-          <WorkTitel as="h1">WORK</WorkTitel>
-          <GoogleSearch />
+          <WorkTitel as="h1">Work</WorkTitel>
         <WorkFilterWrapp>
           {['ALL', 'COMMERCIAL', 'PERSONAL'].map(cat => (
             <WorkTextFilter

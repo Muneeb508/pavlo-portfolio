@@ -126,6 +126,7 @@ const CollectionComponent: React.FC<CollectionComponentProps> = ({
 
   /* ────────── модалка ────────── */
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalImageLoading, setIsModalImageLoading] = useState(false);
   const [currentMedia, setCurrentMedia] = useState<{
     url: string;
     type: 'image' | 'video';
@@ -149,6 +150,14 @@ const CollectionComponent: React.FC<CollectionComponentProps> = ({
   const imageUrl = (fileName: string) =>
     `${supabaseUrl}/storage/v1/object/public/${bucket}/${collection.folder}/${fileName}`;
 
+  /* Validate tag to ensure it's a valid HTML tag and not a data URI */
+  const isValidTag = (tag: any): tag is keyof JSX.IntrinsicElements => {
+    if (typeof tag !== 'string') return false;
+    // Prevent data URIs and other invalid tag names
+    return /^[a-z][a-z0-9]*$/.test(tag) && !tag.includes(':') && !tag.includes('/');
+  };
+
+
   const openModal = (
     src: string,
     type: 'image' | 'video',
@@ -156,6 +165,7 @@ const CollectionComponent: React.FC<CollectionComponentProps> = ({
     description = ''
   ) => {
     if (failedMedia.current.has(src)) return;
+    setIsModalImageLoading(type === 'image');
     setCurrentMedia({
       url: type === 'image' ? src : '',
       type,
@@ -169,6 +179,7 @@ const CollectionComponent: React.FC<CollectionComponentProps> = ({
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setIsModalImageLoading(false);
   };
 
   /* ────────── загрузка блоков ────────── */
@@ -566,7 +577,7 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
             {b.content.sections.map((s: Section, i: number) => (
               <CollectionWrapper key={i}>
                 <COLLECTION_4SEC_TITLE>{s.label}</COLLECTION_4SEC_TITLE>
-                <COLLECTION_4SEC_DESCRIPTION as={s.tag || 'h2'}>
+                <COLLECTION_4SEC_DESCRIPTION as={isValidTag(s.tag) ? (s.tag as any) : 'h2'}>
                   {s.text.split('\n').map((line, index) => (
                     <React.Fragment key={index}>
                       {line}
@@ -590,7 +601,7 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
             {b.content.sections.map((s: Section, i: number) => (
               <CollectionWrapper key={i}>
                 <COLLECTION_4SEC_TITLE>{s.label}</COLLECTION_4SEC_TITLE>
-                <COLLECTION_4SEC_DESCRIPTION as={s.tag || 'h2'}>
+                <COLLECTION_4SEC_DESCRIPTION as={isValidTag(s.tag) ? (s.tag as any) : 'h2'}>
                   {s.text.split('\n').map((line, index) => (
                     <React.Fragment key={index}>
                       {line}
@@ -624,7 +635,13 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
                   <COLLECTION_1SEC_DESCRIPTION>
                     {section.segments.map((seg, idx) => {
                       // Выбираем тэг: h1-h5 или span
-                      const Tag = seg.tag || 'span';
+                      // Validate tag to ensure it's a valid HTML tag and not a data URI
+                      const isValidTag = (tag: any): tag is keyof JSX.IntrinsicElements => {
+                        if (typeof tag !== 'string') return false;
+                        // Prevent data URIs and other invalid tag names
+                        return /^[a-z][a-z0-9]*$/.test(tag) && !tag.includes(':') && !tag.includes('/');
+                      };
+                      const Tag = isValidTag(seg.tag) ? seg.tag : 'span';
 
                       // Функция для разбивки по \n
                       const renderTextWithBreaks = (text: string) =>
@@ -823,11 +840,29 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
             <CloseIcon />
           </CloseButton>
           <MediaContainer>
+            {isModalImageLoading && (
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '100%',
+                height: '60vh',
+                color: '#fff',
+              }}>
+                Loading...
+              </div>
+            )}
             {currentMedia.type === 'image' ? (
               <img
                 src={currentMedia.url}
                 alt={currentMedia.altText}
                 data-modal-img
+                onLoad={() => setIsModalImageLoading(false)}
+                onError={() => {
+                  failedMedia.current.add(currentMedia.url);
+                  setIsModalImageLoading(false);
+                }}
+                style={{ display: isModalImageLoading ? 'none' : 'block' }}
               />
             ) : currentMedia.vimeoId ? (
               <VimeoContainer ref={vimeoContainerRef} />
@@ -835,9 +870,10 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
               <video
                 src={currentMedia.url}
                 controls
-                autoPlay
-                aria-label={currentMedia.title || 'Video player'}
-                style={{ maxWidth: '100%', maxHeight: '70vh', objectFit: 'contain' }}
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '80vh',
+                }}
               />
             )}
           </MediaContainer>

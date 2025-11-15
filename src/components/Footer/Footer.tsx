@@ -92,7 +92,14 @@ const Footer: React.FC = () => {
 
 /* helper: одно звено футера */
 function renderItem(sec: FooterSection) {
-  const Tag = sec.tag || 'h3';
+  // Validate tag to ensure it's a valid HTML tag and not a data URI
+  const isValidTag = (tag: any): tag is keyof JSX.IntrinsicElements => {
+    if (typeof tag !== 'string') return false;
+    // Prevent data URIs and other invalid tag names
+    return /^[a-z][a-z0-9]*$/.test(tag) && !tag.includes(':') && !tag.includes('/');
+  };
+  
+  const Tag = isValidTag(sec.tag) ? sec.tag : 'h3';
 
   if (sec.link) {
     const external = /^https?:\/\//i.test(sec.link);

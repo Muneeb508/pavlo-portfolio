@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Wrapper, BurgerButton, Line, MenuOverlay, MenuLink } from './MobileMenu.styled';
+import { Wrapper, BurgerButton, Line, MenuOverlay, MenuLink, MenuLinksContainer } from './MobileMenu.styled';
 import { StyledNavLink } from '../Header/Header.styled';
 
 
@@ -41,7 +41,7 @@ const BurgerMenu = () => {
     { to: '/info', label: 'INFO' },
     { to: '/contact', label: 'CONTACTS' },
     { to: '/about', label: 'ABOUT ME' },
-    { to: '/sitemap.html', label: 'SITEMAP', isExternal: true },
+    { to: '/sitemap.html', label: 'SITEMAP', isExternal: true, hidden: true },
   ];
 
   return (
@@ -68,15 +68,21 @@ const BurgerMenu = () => {
             transition={{ duration: 0.3 }}
             aria-label="Mobile navigation menu"
           >
-            {navLinks.map((link, index) => (
-              <MenuLink key={index} onClick={() => setIsOpen(false)}>
-                {link.isExternal ? (
-                  <a href={link.to} style={{ textDecoration: 'none', color: 'inherit' }}>{link.label}</a>
-                ) : (
-                  <StyledNavLink to={link.to}>{link.label}</StyledNavLink>
-                )}
-              </MenuLink>
-            ))}
+            <MenuLinksContainer>
+              {navLinks.map((link, index) => (
+                <MenuLink 
+                  key={index} 
+                  onClick={() => setIsOpen(false)}
+                  style={{ display: link.hidden ? 'none' : 'block' }}
+                >
+                  {link.isExternal ? (
+                    <a href={link.to} style={{ textDecoration: 'none', color: 'inherit' }}>{link.label}</a>
+                  ) : (
+                    <StyledNavLink to={link.to}>{link.label}</StyledNavLink>
+                  )}
+                </MenuLink>
+              ))}
+            </MenuLinksContainer>
           </MenuOverlay>
         )}
       </AnimatePresence>

@@ -28,31 +28,41 @@ const ModalOverlay = styled.div`
 
 const ModalContent = styled.div`
   position: relative;
-  max-width: 100vw;
-  max-height: 100vh;
+  max-width: 95vw;
+  max-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: transparent;
   animation: ${fadeInScale} 0.15s ease-out;
+  overflow: visible;
 `;
 
 export const MediaContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 40px;
+  padding: 40px 20px 20px 20px;
   max-height: calc(100vh - 150px);
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
+  box-sizing: border-box;
 
   img {
     height: auto;
-    max-height: 100%;
+    max-height: 80vh;
     width: auto;
-    max-width: 100%;
+    max-width: 90vw;
     object-fit: contain;
-    align-self: stretch;
+  }
+
+  video {
+    height: auto;
+    max-height: 80vh;
+    width: auto;
+    max-width: 90vw;
+    object-fit: contain;
   }
 `;
 
@@ -60,13 +70,12 @@ export const TextContainer = styled.div`
   color: #fff;
   text-align: center;
   width: 100%;
-  padding: 0 20px;
+  max-width: 90vw;
+  padding: 15px 20px;
   box-sizing: border-box;
-  position: sticky;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
-  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 `;
 
 export const CloseButton = styled.button`
