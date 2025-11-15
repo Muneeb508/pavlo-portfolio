@@ -42,7 +42,7 @@ color: #fff;
 
 export const WrapperInfo = styled.div`
 display: flex;
-gap: 10%;
+gap: %;
 margin-top: 50px;
 margin-bottom: 50px;
 
@@ -56,7 +56,7 @@ margin-bottom: 50px;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 50%;
+  gap: 47.5%;
   margin-top: 50px;
   height: 30%;
 }

@@ -165,6 +165,7 @@ const CollectionComponent: React.FC<CollectionComponentProps> = ({
     description = ''
   ) => {
     if (failedMedia.current.has(src)) return;
+    console.log('🖼️ openModal called:', { src, type, title });
     setIsModalImageLoading(type === 'image');
     setCurrentMedia({
       url: type === 'image' ? src : '',

@@ -48,6 +48,8 @@ export const MediaContainer = styled.div`
   width: 100%;
   overflow: auto;
   box-sizing: border-box;
+  background-color: #1a1a1a;
+  border-radius: 8px;
 
   img {
     height: auto;
@@ -55,6 +57,7 @@ export const MediaContainer = styled.div`
     width: auto;
     max-width: 90vw;
     object-fit: contain;
+    display: block;
   }
 
   video {
@@ -63,6 +66,7 @@ export const MediaContainer = styled.div`
     width: auto;
     max-width: 90vw;
     object-fit: contain;
+    display: block;
   }
 `;
 
@@ -153,7 +157,8 @@ interface ModalProps {
 }
 
 
-const Modal: React.FC<ModalProps> = ({ onClose, children, preventScroll = true }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, preventScroll = true }) => {
+  if (!isOpen) return null;
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
