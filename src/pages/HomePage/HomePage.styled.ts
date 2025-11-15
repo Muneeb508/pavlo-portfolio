@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 
 export const HomeContainer = styled.div`
-  max-width: 100%;
-  margin: 0px;
+  width: 100%;
+  min-height: calc(100vh - 78px);
   background: #000;
+  
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   align-items: center;
-  justify-content: flex-start;
-  height: calc(100vh - 78px);
-  padding: 60px 0px 0px 0px;
+  justify-content: center;   /* center vertically */
+
+  padding: 0;                /* remove offset */
+  margin: 0;
 `;
+
 
 export const SpanTitel = styled.span``;
 

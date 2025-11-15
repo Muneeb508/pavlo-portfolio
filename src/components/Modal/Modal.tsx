@@ -29,7 +29,7 @@ const ModalOverlay = styled.div`
 const ModalContent = styled.div`
   position: relative;
   max-width: 95vw;
-  max-height: 95vh;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,14 +43,14 @@ export const MediaContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px 20px 20px;
-  max-height: calc(100vh - 150px);
+  padding: 0;
+  max-height: 80vh;
   width: 100%;
   overflow: auto;
   box-sizing: border-box;
   background-color: #1a1a1a;
   border-radius: 8px;
-
+  /* no border - ensure images show without frame */
   img {
     height: auto;
     max-height: 80vh;
@@ -58,6 +58,8 @@ export const MediaContainer = styled.div`
     max-width: 90vw;
     object-fit: contain;
     display: block;
+    padding: 12px;
+    margin: 0 auto;
   }
 
   video {
@@ -67,6 +69,7 @@ export const MediaContainer = styled.div`
     max-width: 90vw;
     object-fit: contain;
     display: block;
+    padding: 12px;
   }
 `;
 
@@ -75,11 +78,13 @@ export const TextContainer = styled.div`
   text-align: center;
   width: 100%;
   max-width: 90vw;
+  
   padding: 15px 20px;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(5px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
 `;
 
 export const CloseButton = styled.button`

@@ -294,11 +294,18 @@ type IMAGE_PROPS = {
   $aspectRatio?: string;
 };
 
+// helper to make elements full-bleed across the viewport
+// use left:50% + translateX(-50%) so it cannot be overridden by margin:auto
+const fullBleed = css`
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+`;
+
 export const SliderWrapper = styled.div<IMAGE_PROPS>`
   position: relative;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  ${fullBleed};
   aspect-ratio: ${({ $aspectRatio }) => $aspectRatio || '16 / 9'};
   overflow: hidden;
   display: flex;
@@ -308,18 +315,18 @@ export const SliderWrapper = styled.div<IMAGE_PROPS>`
 `;
 
 export const SliderContent = styled.div<{
-  index: number;
-  animate: boolean;
-  offset: number;
-  isDragging: boolean /* ← новое */;
+  $index: number;
+  $animate: boolean;
+  $offset: number;
+  $isDragging: boolean /* transient prop */;
 }>`
   display: flex;
-  transition: ${({ animate, isDragging }) =>
-    !animate || isDragging
+  transition: ${({ $animate, $isDragging }) =>
+    !$animate || $isDragging
       ? 'none'
       : 'transform 0.5s cubic-bezier(0.25, 0, 0.2, 1)'};
-  transform: ${({ index, offset }) =>
-    `translateX(calc(-${index * 100}% + ${offset}px))`};
+  transform: ${({ $index, $offset }) =>
+    `translateX(calc(-${$index * 100}% + ${$offset}px))`};
 `;
 
 export const Slide = styled.div`
@@ -336,10 +343,10 @@ export const Slide = styled.div`
   }
 `;
 
-export const Arrow = styled.button<{ left?: boolean }>`
+export const Arrow = styled.button<{ $left?: boolean }>`
   position: absolute;
   top: 50%;
-  ${({ left }) => (left ? 'left: 0px' : 'right: 0px')};
+  ${({ $left }) => ($left ? 'left: 0px' : 'right: 0px')};
   transform: translateY(-50%);
   background: none;
   border: none;
@@ -376,7 +383,7 @@ export const Arrow = styled.button<{ left?: boolean }>`
 
 const IMAGE_BASEGRID = styled.div<IMAGE_PROPS>`
   display: grid;
-  width: 100%;
+  ${fullBleed};
   gap: 3px;
   margin-bottom: 3rem;
 
@@ -517,7 +524,7 @@ export const TextBlock = styled.div`
 `;
 
 export const ImageBlock = styled.div`
-  width: 100%;
+  ${fullBleed};
   overflow: hidden;
   aspect-ratio: 1 / 1;
   display: flex;

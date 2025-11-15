@@ -126,7 +126,6 @@ const CollectionComponent: React.FC<CollectionComponentProps> = ({
 
   /* ────────── модалка ────────── */
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModalImageLoading, setIsModalImageLoading] = useState(false);
   const [currentMedia, setCurrentMedia] = useState<{
     url: string;
     type: 'image' | 'video';
@@ -165,8 +164,7 @@ const CollectionComponent: React.FC<CollectionComponentProps> = ({
     description = ''
   ) => {
     if (failedMedia.current.has(src)) return;
-    console.log('🖼️ openModal called:', { src, type, title });
-    setIsModalImageLoading(type === 'image');
+    
     setCurrentMedia({
       url: type === 'image' ? src : '',
       type,
@@ -180,7 +178,6 @@ const CollectionComponent: React.FC<CollectionComponentProps> = ({
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setIsModalImageLoading(false);
   };
 
   /* ────────── загрузка блоков ────────── */
@@ -389,7 +386,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, aspectRatio }) => {
       onPointerUp={onPointerUp}
       onPointerLeave={onPointerUp}
     >
-      <Arrow left onClick={prevSlide} aria-label="Previous slide" role="button" tabIndex={0}>
+      <Arrow $left onClick={prevSlide} aria-label="Previous slide" role="button" tabIndex={0}>
         <img src={Left} alt="Previous slide" />
       </Arrow>
       <Arrow onClick={nextSlide} aria-label="Next slide" role="button" tabIndex={0}>
@@ -397,10 +394,10 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, aspectRatio }) => {
       </Arrow>
 
       <SliderContent
-        index={index}
-        animate={animate}
-        offset={offset}
-        isDragging={isDragging}
+        $index={index}
+        $animate={animate}
+        $offset={offset}
+        $isDragging={isDragging}
         onTransitionEnd={handleTransitionEnd}
       >
         {slides.map((img, i) => (
@@ -831,42 +828,37 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
 
       {/* ——— модалка ——— */}
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <>
+          <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <CloseButton 
             onClick={closeModal}
             aria-label="Close modal"
             title="Close modal (Press Escape)"
           >
-            <CloseIcon />
+            {typeof CloseIcon === 'string' ? (
+              <img src={CloseIcon} alt="Close" style={{ width: '24px', height: '24px' }} />
+            ) : (
+              <CloseIcon />
+            )}
           </CloseButton>
           <MediaContainer>
-            {isModalImageLoading && (
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '100%',
-                height: '60vh',
-                color: '#fff',
-              }}>
-                Loading...
-              </div>
-            )}
-            {currentMedia.type === 'image' ? (
+            {currentMedia.type === 'image' && (
               <img
                 src={currentMedia.url}
                 alt={currentMedia.altText}
                 data-modal-img
-                onLoad={() => setIsModalImageLoading(false)}
+                onLoad={() => {}}
                 onError={() => {
+                  console.error('❌ Image failed to load:', currentMedia.url);
                   failedMedia.current.add(currentMedia.url);
-                  setIsModalImageLoading(false);
+                  
                 }}
-                style={{ display: isModalImageLoading ? 'none' : 'block' }}
               />
-            ) : currentMedia.vimeoId ? (
+            )}
+            {currentMedia.type === 'video' && currentMedia.vimeoId && (
               <VimeoContainer ref={vimeoContainerRef} />
-            ) : (
+            )}
+            {currentMedia.type === 'video' && !currentMedia.vimeoId && (
               <video
                 src={currentMedia.url}
                 controls
@@ -894,6 +886,7 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
 
 
         </Modal>
+        </>
       )}
     </CollectionContainer>
   );

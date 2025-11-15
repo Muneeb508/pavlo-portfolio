@@ -237,19 +237,16 @@ export const ImageDescription = styled.p<{ $isVisible: boolean }>`
     font-size: 22px;
   }
 `;
-
 export const WorkPhotoWrapp = styled.div`
-margin-bottom: 50px;
-@media screen and (min-width: 744px){
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
 
-
-}
-
-@media screen and (min-width: 1440px){
-
-
-}
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 `;
+
 export const WorkItem = styled.div`
 height: 200px;
 width: 100vw;
