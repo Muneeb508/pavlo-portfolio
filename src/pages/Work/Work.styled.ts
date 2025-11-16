@@ -77,7 +77,7 @@ export const WorkTextFilter = styled.button`
   background: transparent;
   border: none;
   min-height: 44px;
-  padding: 10px 8px;
+  padding: 10px 4px;
   transition: all 0.3s ease-in-out;
   position: relative;
   white-space: nowrap;
@@ -99,11 +99,11 @@ export const WorkTextFilter = styled.button`
 
   @media screen and (min-width: 744px) {
     font-size: 16px;
-    padding: 10px 12px;
+    padding: 10px 6px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 10px 16px;
+    padding: 10px 8px;
   }
 `;
 

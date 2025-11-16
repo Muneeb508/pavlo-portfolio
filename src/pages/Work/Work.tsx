@@ -90,7 +90,7 @@ const Work: React.FC = () => {
       
       <WorkContainer>
         <WorkTitelContainer>
-          <WorkTitel as="h1">Work</WorkTitel>
+          <WorkTitel as="h1">WORK</WorkTitel>
         <WorkFilterWrapp>
           {['ALL', 'COMMERCIAL', 'PERSONAL'].map(cat => (
             <WorkTextFilter

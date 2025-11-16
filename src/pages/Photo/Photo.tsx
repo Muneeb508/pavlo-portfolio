@@ -81,7 +81,7 @@ const Photo: React.FC = () => {
       
       <WorkContainer>
         <WorkTitelContainer>
-          <WorkTitel as="h1">Photography</WorkTitel>
+          <WorkTitel as="h1">PHOTOGRAPHY</WorkTitel>
         <WorkFilterWrapp>
           {['ALL', 'COMMERCIAL', 'PERSONAL'].map(cat => (
             <WorkTextFilter

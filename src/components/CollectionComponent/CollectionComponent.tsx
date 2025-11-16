@@ -48,6 +48,7 @@ import {
   VimeoVideoContainer,
   VideoCaption,
   CUSTOM_SPLITTER,
+  TopSplitter,
 } from './CollectionComponent.styled';
 
 /* ────────────────────────────────────────────── */
@@ -727,7 +728,11 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
       case 'SPLITTER_DEFAULT':
         return <hr key={b.id} style={{ margin: '20px 0', borderColor: '#444' }} />;
       case 'SPLITTER':
-        return <CUSTOM_SPLITTER/>;
+        // Hide SPLITTER blocks for photography pages since we have TopSplitter at the top
+        if (source === 'photo') {
+          return null;
+        }
+        return <CUSTOM_SPLITTER key={b.id} />;
       case 'SPLITTER_SPACE': {
         const height = b.content?.size || '100px'; // fallback if no size is defined
         return <div key={b.id} style={{ height }} />;
@@ -764,8 +769,10 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
   }
 
   /* ────────── MAIN JSX ────────── */
+  const isPhoto = source === 'photo';
   return (
-    <CollectionContainer>
+    <CollectionContainer $isPhoto={isPhoto}>
+      {isPhoto && <TopSplitter />}
       {/* ——— верхний титул и фильтр ——— */}
       {showFilter && (
         <WorkTitelContainer>
@@ -794,8 +801,8 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
 
       {/* ——— хедер коллекции ——— */}
       {collection.main && (
-        <CollectionAdditionalWrapper>
-        <CollectionHeader>
+        <CollectionAdditionalWrapper $isPhoto={isPhoto}>
+        <CollectionHeader $isPhoto={isPhoto}>
           {collection.main.map(
             (
               s: {
@@ -805,7 +812,7 @@ const renderImageGridBlock = (b: CollectionBlockDB) => {
               },
               i: number
             ) => (
-              <CollectionWrapper key={i}>
+              <CollectionWrapper key={i} $isPhoto={isPhoto}>
                 <COLLECTION_4SEC_TITLE>{s.label}</COLLECTION_4SEC_TITLE>
                 <COLLECTION_4SEC_DESCRIPTION
                   as={s.tag || 'h1'}

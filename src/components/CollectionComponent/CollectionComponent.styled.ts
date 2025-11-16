@@ -5,15 +5,16 @@ type Align = 'left' | 'center' | 'right';
 /* ────────────────────────────────────────────── */
 /* ОБЩАЯ ОБЁРТКА                                  */
 /* ────────────────────────────────────────────── */
-export const CollectionContainer = styled.div`
+export const CollectionContainer = styled.div<{ $isPhoto?: boolean }>`
   width: 100%;
-  margin: 78px auto;
+  margin: ${props => props.$isPhoto ? '0px' : '78px'} auto;
   margin-bottom: 0px;
+  position: relative;
   @media (min-width: 1440px) {
     max-width: 100%;
   }
 `;
-export const CollectionAdditionalWrapper = styled.div`
+export const CollectionAdditionalWrapper = styled.div<{ $isPhoto?: boolean }>`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -22,6 +23,7 @@ export const CollectionAdditionalWrapper = styled.div`
   align-content: center;
   padding: 0px 18px;
   gap: 40px;
+  margin-top: ${props => props.$isPhoto ? '-78px' : '0px'};
 
   @media (min-width: 744px) {
     padding: 0px 24px;
@@ -116,8 +118,12 @@ export const WorkTitel = styled.h1`
 export const WorkFilterWrapp = styled.div`
   margin: 0 auto;
   display: flex;
-  gap: 25px;
+  gap: 0px;
   justify-content: center;
+  
+  @media (min-width: 744px) {
+    gap: 0px;
+  }
 `;
 
 export const activeStyles = css`
@@ -133,7 +139,11 @@ export const WorkTextFilter = styled.button`
   line-height: 162%;
   color: #808080;
   text-decoration: none;
+  background: transparent;
+  border: none;
+  padding: 10px 4px;
   transition: all 0.3s ease-in-out;
+  white-space: nowrap;
 
   &.active {
     ${activeStyles};
@@ -141,6 +151,11 @@ export const WorkTextFilter = styled.button`
 
   @media (min-width: 744px) {
     font-size: 16px;
+    padding: 10px 6px;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 10px 8px;
   }
 `;
 
@@ -180,12 +195,12 @@ export const COLLECTION_1SEC_DESCRIPTION = styled.div`
   }
 `;
 
-export const CollectionWrapper = styled.div`
+export const CollectionWrapper = styled.div<{ $isPhoto?: boolean }>`
   display: flex;
   flex-direction: column;
   gap: 16px;
   width: auto;
-  padding-bottom: 32px;
+  padding-bottom: ${props => props.$isPhoto ? '16px' : '32px'};
 
   @media (min-width: 744px) {
     width: 50%;
@@ -248,10 +263,10 @@ export const COLLECTION_4SEC_DESCRIPTION = styled.h2`
   padding-bottom: 8px;
 `;
 
-export const CollectionHeader = styled.div`
+export const CollectionHeader = styled.div<{ $isPhoto?: boolean }>`
   display: flex;
   flex-direction: column;
-  padding: 40px 0px 40px;
+  padding: ${props => props.$isPhoto ? '20px' : '40px'} 0px ${props => props.$isPhoto ? '20px' : '40px'};
   width: 100%;
   margin: 0 auto;
 
@@ -263,7 +278,7 @@ export const CollectionHeader = styled.div`
 
   @media (min-width: 1440px) {
     max-width: 1440px;
-    padding: 50px 0px;
+    padding: ${props => props.$isPhoto ? '30px' : '50px'} 0px;
     align-items: flex-start;
   }
 `;
@@ -550,23 +565,38 @@ export const ImageBlock = styled.div`
 /* ────────────────────────────────────────────── */
 
 export const CUSTOM_SPLITTER = styled.div`
-  /* внешний контейнер */
   width: 100%;
   display: flex;
-  justify-content: center; /* центрируем линию */
-  padding: 9px 18px;
+  justify-content: center;
+  padding: 5px 18px; /* lowered from 20px */
+
   background: #000;
 
   @media (min-width: 744px) {
-    padding: 0px 24px;
+    padding: 5px 24px; /* lowered here too */
   }
 
-  /* сама линия */
   &::after {
     content: '';
     width: 100%;
     max-width: 1440px;
     height: 1px;
     background: #d9d9d9;
+  }
+`;
+
+export const TopSplitter = styled(CUSTOM_SPLITTER)`
+  position: fixed;
+  top: 78px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  z-index: 98;
+  background: #000;
+  
+  @media (min-width: 744px) {
+    top: 78px;
   }
 `;

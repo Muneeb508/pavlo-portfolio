@@ -61,7 +61,7 @@ const Info: React.FC = () => {
           <CollectionHeader>
             <h1></h1>
             {[
-              { tag: 'h2', text: 'Pavlo Troph', label: 'Artist Name' },
+              { tag: 'h2', text: 'Pavlo Troph', label: 'Artist Name', bold: true },
             { tag: 'h3', text: 'Graphic Design\nCGI\nPhotography\nCinematography\nArt Direction', label: 'Specialization' },
             { tag: 'h3', text: 'Toronto, ON, CA', label: 'Location' },
             { tag: 'h3', text: 'info@pavlotroph.com', label: 'Contact' },
@@ -77,7 +77,7 @@ const Info: React.FC = () => {
             return (
             <CollectionWrapper key={i}>
               <COLLECTION_4SEC_TITLE>{s.label}</COLLECTION_4SEC_TITLE>
-              <COLLECTION_4SEC_DESCRIPTION as={validTag as any}>
+              <COLLECTION_4SEC_DESCRIPTION as={validTag as any} style={(s as any).bold ? { fontWeight: 550 } : {}}>
                 {s.text.split('\n').map((line, index) => (
                   <React.Fragment key={index}>
                     {line}

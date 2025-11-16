@@ -40,7 +40,7 @@ const AboutUs: React.FC = () => {
     return (
       <>
         <Helmet>
-          <title>About</title>
+          <title>About </title>
         </Helmet>
         <AdditionalWrapper>
           <AboutContainer>
@@ -68,7 +68,7 @@ const AboutUs: React.FC = () => {
       
       <AdditionalWrapper>
         <AboutContainer>
-          <AboutTitle as="h1">About</AboutTitle>
+          <AboutTitle as="h1">About Me</AboutTitle>
 
           {blocks.map(block => (
           <Reveal key={block.id}>

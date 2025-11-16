@@ -5,14 +5,12 @@ export const HomeContainer = styled.div`
   min-height: calc(100vh - 78px);
   background: #000;
 
-  /* proper flexbox */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
-  /* top offset */
-  padding: clamp(140px, 24vh, 340px) 0 0 0;
+  transform: translateY(-5vh); /* lift content slightly */
   margin: 0;
 `;
 
