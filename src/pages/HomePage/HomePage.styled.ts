@@ -4,16 +4,17 @@ export const HomeContainer = styled.div`
   width: 100%;
   min-height: calc(100vh - 78px);
   background: #000;
-  
+
+  /* proper flexbox */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;   /* center vertically */
+  justify-content: flex-start;
 
-  padding: 0;                /* remove offset */
+  /* top offset */
+  padding: clamp(140px, 24vh, 340px) 0 0 0;
   margin: 0;
 `;
-
 
 export const SpanTitel = styled.span``;
 

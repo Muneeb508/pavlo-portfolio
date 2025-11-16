@@ -71,12 +71,12 @@ export const Logo = styled(NavLink)`
   display: flex;
   align-items: center;
   margin: 0;
-  margin-left: -28px;
+  margin-left: 0;
   padding: 0;
   z-index: 101;
   
   @media screen and (min-width: 768px) {
-    margin-left: -23px;
+    margin-left: -1px;
   }
   
   img {

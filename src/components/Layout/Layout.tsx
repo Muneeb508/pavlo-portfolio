@@ -5,7 +5,8 @@ import Footer from '../Footer/Footer';
 
 export const Layout: React.FC = () => {
   const location = useLocation();
-  const isHomePage = location.pathname === '/home';
+  const isHomePage =
+    location.pathname === '/' || location.pathname === '/home';
 
   return (
     <>

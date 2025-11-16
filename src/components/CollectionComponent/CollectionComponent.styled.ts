@@ -524,7 +524,6 @@ export const TextBlock = styled.div`
 `;
 
 export const ImageBlock = styled.div`
-  ${fullBleed};
   overflow: hidden;
   aspect-ratio: 1 / 1;
   display: flex;
@@ -532,8 +531,8 @@ export const ImageBlock = styled.div`
 
   img {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     cursor: pointer;
   }
 

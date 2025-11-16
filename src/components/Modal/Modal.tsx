@@ -48,8 +48,7 @@ export const MediaContainer = styled.div`
   width: 100%;
   overflow: auto;
   box-sizing: border-box;
-  background-color: #1a1a1a;
-  border-radius: 8px;
+  background: transparent;
   /* no border - ensure images show without frame */
   img {
     height: auto;
@@ -58,8 +57,9 @@ export const MediaContainer = styled.div`
     max-width: 90vw;
     object-fit: contain;
     display: block;
-    padding: 12px;
+    padding: 0;
     margin: 0 auto;
+    border: none;
   }
 
   video {
@@ -69,7 +69,8 @@ export const MediaContainer = styled.div`
     max-width: 90vw;
     object-fit: contain;
     display: block;
-    padding: 12px;
+    padding: 0;
+    border: none;
   }
 `;
 
